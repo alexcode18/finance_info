@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby '2.1.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
@@ -22,19 +22,22 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-
+gem 'selenium', '~> 0.2.11'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'selenium-webdriver', '~> 2.45.0'
 # Use Unicorn as the app server
 # gem 'unicorn'
-
+gem 'nokogiri', '~> 1.6.6.2'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'json', '~> 1.8.2'
+gem 'pry-rails'
+gem 'backbars'
+gem 'httparty'
+gem 'rails_12factor'
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
@@ -43,3 +46,6 @@ group :development, :test do
   gem 'spring'
 end
 
+
+gem 'rails-assets-underscore', source: 'https://rails-assets.org'
+gem 'rails-assets-backbone', source: 'https://rails-assets.org'

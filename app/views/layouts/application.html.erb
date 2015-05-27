@@ -3,12 +3,19 @@
 <head>
   <title>FinanceInfo</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<p>asvaerver</p>
+<!-- <%= yield %> -->
+	<!-- <object type="image/svg+xml" data="//b.h-t.co/679f5954-ca03-e511-80c3-0003ff733473">Your browser does not support SVG</object> -->
 
-<%= yield %>
-
+	<div class='with-3d-shadow with-transitions'>
+		<div id="test1" class="chartWrap">
+    	<svg></svg>
+		</div>
+	</div>
 </body>
 </html>

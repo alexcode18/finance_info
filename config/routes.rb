@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :uptimes, only: [:index, :show, :create, :update, :destroy]
+
+  root 'application#index'
+  get '/projects', to: 'projects#usspending'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

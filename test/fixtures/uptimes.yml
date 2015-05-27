@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  avg_speed: 9.99
+  size: 9.99
+  download: 9.99
+
+two:
+  avg_speed: 9.99
+  size: 9.99
+  download: 9.99

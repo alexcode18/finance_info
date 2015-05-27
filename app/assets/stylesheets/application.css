@@ -13,3 +13,34 @@
  *= require_tree .
  *= require_self
  */
+
+html, body, #test1, svg {
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    width: 100%;
+}
+
+#test1 {
+	margin: 0 auto;
+  padding: 0px;
+  height: 100%;
+  width: 90%;
+}
+
+text {
+  font: 12px sans-serif;
+}
+
+svg, .nvd3 {
+  display: block;
+  padding-top: 100px;
+}
+
+.nvd3-svg {
+	height: 200px;
+}
+
+/*.chartWrap {
+	overflow: visible;
+}*/
