@@ -29,11 +29,13 @@ var App = {
 	Views: {}, 
 	Routers: {}
 };
+
 $(function(){
 	renderUptime();
-	
+	renderDate();
 	setInterval(renderUptime, 600000);
 
+	//Grabs US.gov data for the graph
 	$.get('projects/').done(function(data){
 		console.log(data);
 		makeGraph(data);
@@ -48,6 +50,15 @@ function renderUptime() {
 		$('#past-speed span').text(past + ' kB/s');
 		$('#now-speed span').text(now + ' kB/s');
 	});
+}
+
+function renderDate() {
+	var d = new Date();
+	var day = d.getDate();
+	var month = d.getMonth();
+	var year = d.getFullYear();
+	var date = month + ' / ' + day + ' / ' + year;
+	$('.date').text("Today's Date: " + date);
 }
 
 function renderPost(data) {
@@ -115,6 +126,13 @@ function processData(x,y) {
 	return combo_array;
 }
 
+//////////////////////////////////////////
+
+// I started creating a d3.js graph from 
+// scratch and then realized there were 
+// more interactive options like nvd3.js
+
+//////////////////////////////////////////
 
 	// var margin = {top: 20, right: 20, bottom: 30, left: 40},
 	// width = 960 - margin.left - margin.right,
