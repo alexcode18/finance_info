@@ -30,10 +30,9 @@ var App = {
 	Routers: {}
 };
 $(function(){
-
-	// $.post('uptimes/').done(function(data){ //offset is the reference name for controller params
-	// 	console.log(data);
-	// });
+	renderUptime();
+	
+	setInterval(renderUptime, 600000);
 
 	$.get('projects/').done(function(data){
 		console.log(data);
@@ -41,9 +40,23 @@ $(function(){
 	});
 });
 
+function renderUptime() {
+	$.post('uptimes/').done(function(data){ //offset is the reference name for controller params
+		console.log(data);
+		var past = parseUptime(data['past'].avg_speed);
+		var now = parseUptime(data['now'].avg_speed);
+		$('#past-speed span').text(past + ' kB/s');
+		$('#now-speed span').text(now + ' kB/s');
+	});
+}
+
 function renderPost(data) {
 	$('body').append(data);
 	console.log(data);
+}
+
+function parseUptime(uptime) {
+	return parseFloat(Math.round(uptime * 100) / 100).toFixed(2);
 }
 
 function makeGraph(data) {

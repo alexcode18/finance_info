@@ -8,14 +8,25 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<p>asvaerver</p>
 <!-- <%= yield %> -->
-	<!-- <object type="image/svg+xml" data="//b.h-t.co/679f5954-ca03-e511-80c3-0003ff733473">Your browser does not support SVG</object> -->
-
+	<object type="image/svg+xml" data="//b.h-t.co/679f5954-ca03-e511-80c3-0003ff733473">Your browser does not support SVG</object>
+	<header>
+		<div id="date"></div>
+		<div>
+			<ul>
+				<h3>Avg. Uptime Speed</h3>
+				<li class="speed" id="now-speed">Current: <span></span></li>
+				<li class="speed" id="past-speed">Previous: <span></span></li>
+				<li class="date"></li>
+			</ul>
+		</div>
+	</header>
 	<div class='with-3d-shadow with-transitions'>
+		
 		<div id="test1" class="chartWrap">
     	<svg></svg>
-		</div>
+		</div><br>
+		<p>When completed, I would like the graph to look more like this: <a href="http://nvd3-community.github.io/nvd3/examples/site.html">http://nvd3-community.github.io/nvd3/examples/site.html</a></p>
 	</div>
 </body>
 </html>
