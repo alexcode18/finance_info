@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>FinanceInfo</title>
+  <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <script src="http://d3js.org/d3.v3.min.js"></script>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -9,13 +10,18 @@
 </head>
 <body>
 	<header>
-		<div id="date"></div>
 		<div>
+			<h1 class="logo">Finance Info</h1>
 			<ul>
-				<h3>Avg. Uptime Speed</h3>
-				<li class="speed" id="now-speed">Current: <span></span></li>
-				<li class="speed" id="past-speed">Previous: <span></span></li>
-				<li class="date"></li>
+				<li class="li-header">
+					<h3>Avg. Uptime Speed</h3>
+				</li><li class="speed stats" id="now-speed">
+					<span></span>
+				</li><li class="speed stats" id="past-speed">
+					Prev: <span></span>
+				</li><li class="li-header">
+					<h3>Today's Date</h3>
+				</li><li class="date stats"></li>
 			</ul>
 		</div>
 	</header>

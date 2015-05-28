@@ -47,8 +47,13 @@ function renderUptime() {
 		console.log(data);
 		var past = parseUptime(data['past'].avg_speed);
 		var now = parseUptime(data['now'].avg_speed);
-		$('#past-speed span').text(past + ' kB/s');
-		$('#now-speed span').text(now + ' kB/s');
+		if (past != null) {
+			$('#past-speed span').text(past + ' kB/s');
+		}
+
+		if (now != null) {
+			$('#now-speed span').text(now + ' kB/s');
+		}
 	});
 }
 
@@ -58,7 +63,7 @@ function renderDate() {
 	var month = d.getMonth();
 	var year = d.getFullYear();
 	var date = month + ' / ' + day + ' / ' + year;
-	$('.date').text("Today's Date: " + date);
+	$('.date').text(date);
 }
 
 function renderPost(data) {

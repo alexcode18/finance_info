@@ -32,13 +32,39 @@ header {
   top: 0;
   color: white;
   background: navy;
-  font-family: arial, sans-serif;
-  font-size: 20pt;
+  font-family: 'Montserrat', arial, sans-serif;
+  font-weight: 400;
+  font-size: 12pt;
 }
 
 header li {
   display: inline-block;
-  padding: 20px;
+  padding: 15px;
+  border: 0;
+}
+
+header ul {
+  float: right;
+}
+
+.logo {
+  float: left;
+  font-size: 20pt;
+  margin-top: 10px;
+  margin-left: 15px;
+  font-weight: 700;
+}
+
+.stats {
+  background: lightblue;
+  color: navy;
+  /*min-width: 105px;*/
+  /*min-height: 45px;*/
+}
+
+.li-header,
+.stats {
+  font-size: 12pt;
 }
 
 #test1 {
