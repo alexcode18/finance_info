@@ -1,0 +1,118 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+html, body, #test1, svg {
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+  padding-top: 40px;
+}
+
+header {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  color: white;
+  background: navy;
+  font-family: 'Montserrat', arial, sans-serif;
+  font-weight: 400;
+  font-size: 12pt;
+  z-index: 100;
+}
+
+header li {
+  display: inline-block;
+  padding: 15px;
+  border: 0;
+}
+
+header ul {
+  float: right;
+}
+
+.logo {
+  float: left;
+  font-size: 20pt;
+  margin-top: 10px;
+  margin-left: 15px;
+  font-weight: 700;
+}
+
+.stats {
+  background: lightblue;
+  color: navy;
+  /*min-width: 105px;*/
+  /*min-height: 45px;*/
+}
+
+header li,
+.stats {
+  font-size: 12pt;
+}
+
+.graph-header,
+.mission-state {
+  padding: 40px 60px;
+}
+
+.graph-header {
+  background: lightblue;
+}
+
+.mission-state {
+  background: orange;
+}
+
+.chart {
+  margin: 20px;
+}
+
+.chart div {
+  background: orange;
+  margin: 2px;
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+#graph {
+	margin: 0 auto;
+  padding: 0px;
+  height: 100%;
+  width: 90%;
+}
+
+text {
+  font: 12px sans-serif;
+}
+
+svg, .nvd3 {
+  display: block;
+  padding-top: 0px;
+}
+
+.nvd3-svg {
+	height: 300px;
+  padding-top: 150px;
+}
+
+/*.chartWrap {
+	overflow: visible;
+}*/

@@ -31,105 +31,86 @@ var App = {
 };
 
 $(function(){
-	renderUptime();
-	renderDate();
-	setInterval(renderUptime, 600000);
-
+	App.headerView = new App.Views.HeaderView({
+		success: function() {
+			App.graph = new App.Models.Graph({
+				success: function() {
+					console.log('got graph info');
+					// App.graphView = new App.Views.GraphView({ model: App.graph });
+				}
+			});
+		}
+	});
+	
 	//Grabs US.gov data for the graph
 	$.get('projects/').done(function(data){
-		console.log(data);
-		makeGraph(data);
+		App.graphView = new App.Views.GraphView({ model: data });
+		// graphTest2(data);
 	});
 });
-
-function renderUptime() {
-	$.post('uptimes/').done(function(data){ //offset is the reference name for controller params
-		console.log(data);
-		var past = parseUptime(data['past'].avg_speed);
-		var now = parseUptime(data['now'].avg_speed);
-		if (past != null) {
-			$('#past-speed span').text(past + ' kB/s');
-		}
-
-		if (now != null) {
-			$('#now-speed span').text(now + ' kB/s');
-		}
-	});
-}
-
-function renderDate() {
-	var d = new Date();
-	var day = d.getDate();
-	var month = d.getMonth();
-	var year = d.getFullYear();
-	var date = month + ' / ' + day + ' / ' + year;
-	$('.date').text(date);
-}
 
 function renderPost(data) {
 	$('body').append(data);
 	console.log(data);
 }
 
-function parseUptime(uptime) {
-	return parseFloat(Math.round(uptime * 100) / 100).toFixed(2);
-}
 
-function makeGraph(data) {
-	var chart;
-	var years = data[1];
-	var gdp = data[2];
-	// var width = 100%;
-	// var height = 600;
-	console.log('years: ' + years);
-	console.log('gdp: ' + gdp);
-	chart = nv.models.scatterChart()
-						.showDistX(true)
-						.showDistY(true)
-						.duration(300)
-						.color(d3.scale.category10().range());
+////// Original interactive graph ////////
+// function makeGraph(data) {
+// 	var chart;
+// 	var years = data[1];
+// 	var gdp = data[2];
+// 	// var width = 100%;
+// 	// var height = 600;
+// 	console.log('years: ' + years);
+// 	console.log('gdp: ' + gdp);
+// 	chart = nv.models.scatterChart()
+// 						.showDistX(true)
+// 						.showDistY(true)
+// 						.duration(300)
+// 						.color(d3.scale.category10().range());
 
-	chart.dispatch.on('renderEnd', function() {
-		console.log('render complete');
-	});
+// 	chart.dispatch.on('renderEnd', function() {
+// 		console.log('render complete');
+// 	});
 
-	chart.xAxis.tickFormat(d3.format('4f'));
-	chart.yAxis.tickFormat(d3.format('.02f'));
+// 	chart.xAxis.tickFormat(d3.format('4f'));
+// 	chart.yAxis.tickFormat(d3.format('.02f'));
 
-	d3.select('#test1 svg')
-		.datum(nv.log(processData(years,gdp)))
-		.call(chart);
+// 	d3.select('#graph svg')
+// 		.datum(nv.log(processData(years,gdp)))
+// 		.call(chart);
 
-	nv.utils.windowResize(chart.update);
-	chart.dispatch.on('stateChange', function(e) { 
-			nv.log('newState:', JSON.stringify(e));
-	});
-}
+// 	nv.utils.windowResize(chart.update);
+// 	chart.dispatch.on('stateChange', function(e) { 
+// 			nv.log('newState:', JSON.stringify(e));
+// 	});
+// }
 
 //matching the x and y coordinates
-function processData(x,y) {
-	var combo_array = [];
-	var total = 0;
-	shapes = ['circle'];
-	$.each(y,function() {
-	    total += this;
-	});
+// function processData(x,y) {
+// 	var combo_array = [];
+// 	var total = 0;
+// 	shapes = ['circle'];
+// 	$.each(y,function() {
+// 	    total += this;
+// 	});
 
-	combo_array.push({
-		key: 'GDP',
-		values: []
-	});
-	console.log(combo_array);
-	for (var i = 0; i < y.length; i++) {
-		combo_array[0].values.push({
-			x: x[i],
-			y: y[i],
-			size: Math.random(),
-			shape: shapes[i % shapes.length]
-		});
-	}
-	return combo_array;
-}
+// 	combo_array.push({
+// 		key: 'GDP',
+// 		values: []
+// 	});
+// 	console.log('combo_array: ' + combo_array);
+// 	for (var i = 0; i < y.length; i++) {
+// 		combo_array[0].values.push({
+// 			x: x[i],
+// 			y: y[i],
+// 			size: Math.random(),
+// 			shape: shapes[i % shapes.length]
+// 		});
+// 	}
+// 	return combo_array;
+// }
 
 //////////////////////////////////////////
 
